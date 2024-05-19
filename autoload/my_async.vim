@@ -41,7 +41,9 @@ function! s:get_msg(ch, msg) abort
 endfunction
 
 function! s:exit_cb(job, status) abort
-  echohl Comment
-  echomsg s:result[-1] .. ' - Job exited.'
-  echohl NONE
+  if len(s:result) > 0
+    echohl Comment
+    echomsg s:result[-1] .. ' - Job exited.'
+    echohl NONE
+  endif
 endfunction
